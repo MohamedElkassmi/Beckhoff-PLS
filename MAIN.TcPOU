@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="MAIN" Id="{576e9352-28e5-424b-9181-de377b879873}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	//Inputs
+	diKapasativGiver1 AT %I* : BOOL;
+	diKapasativGiver2 AT %I* : BOOL;
+	
+	//Minnevariabler
+	bMinneKapasativGiver1 : BOOL := 0;
+	bMinneKapasativGiver2 : BOOL := 0;
+	
+	bMinne_OR : BOOL := 0;
+	bMinne_AND : BOOL := 0;
+	bMinne_XOR : BOOL := 0;
+	bMinne_XOR_NOT : BOOL := 0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bMinneKapasativGiver1 := diKapasativGiver1;
+bMinneKapasativGiver2 := diKapasativGiver2;
+
+bMinne_OR := diKapasativGiver1 OR diKapasativGiver2;
+bMinne_AND := diKapasativGiver1 AND diKapasativGiver2;
+bMinne_XOR := diKapasativGiver1 XOR diKapasativGiver2;
+bMinne_XOR_NOT :=  bMinne_XOR;
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="19" Count="1" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="21" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
